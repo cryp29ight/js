@@ -66,24 +66,100 @@
 
 // Object
 // Old OOPS
-let person1 = {
-    firstName: "Uniq",
-    lastName: "Boy",
-    age: 21,
-    'id proof': "Pan",
+// let anotherOne = new Object();
+// anotherOne.Author = 'Dj Khalid'
 
-    fullName: function () {
-        // console.log(this.firstName + " " + this.lastName);
-        console.log(`${this.firstName} ${this.lastName}`);
-    }
-};
-person1.city = "Night City";
-console.log(person1.city);
+// console.log(anotherOne.Author);
+
+// let person1 = {
+//     firstName: "Uniq",
+//     lastName: "Boy",
+//     age: 21,
+//     'id proof': "Pan",
+
+//     fullName: function () {
+//         // console.log(this.firstName + " " + this.lastName);
+//         console.log(`${this.firstName} ${this.lastName}`);
+//     }
+// };
+// person1.city = "Night City";
+// // console.log(person1.city);
 // person1.age = 20;
 // console.log(person1.age);
 // console.log(person1["id proof"]);
 // person1.fullName();
 
-// Class
+// Constructor
+// function Person(first, last, age) {
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
 
-// Inheritance
+//     this.sayHi = function () {
+//         console.log(`Hi ${this.firstName} ${this.lastName}!`);
+//     };
+
+//     this.changeAge = function (newAge) {
+//         this.age = newAge;
+//     };
+// }
+
+// let person1 = new Person("Spy", "Boy", 21);
+// person1.changeAge(55);
+// console.log(person1);
+// console.log(person1.age);
+// console.log(person1.sayHi());
+// console.log(person1);
+// console.log(person1.sayHi());
+
+// let person2 = new Person("Lost", "Boy", 20);
+// console.log(person2);
+
+
+// Prototype
+// let person3 = {};
+
+
+// let person4 = {
+//     name: "Spider"
+// };
+// console.log(person4);
+
+// console.log(person4.hasOwnProperty('name'));
+
+// Another constructor
+function Creature(ls) {
+    this.lifeSpan = ls;
+}
+Creature.prototype.breath = function () {
+    console.log('breathing...');
+}
+
+// Object
+let creature1 = new Creature(100);
+
+console.log(creature1);
+
+// Lets define constructor
+function Person(first, last, age) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+}
+// // Prototype
+Person.prototype.fullName = function () {
+    console.log(`Hey ${this.firstName} ${this.lastName}`);
+}
+
+Person.prototype.__proto__ = Object.create(Creature.prototype);
+
+
+let person1 = new Person("Uniq", "Boy", 21);
+
+// 
+
+console.log(person1);
+person1.breath();
+person1.fullName();
+
+// <--- Done --->
